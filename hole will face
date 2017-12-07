@@ -1,0 +1,8 @@
+在命令行中输入“pip3 install pycrypto” 报Microsoft visual C++ 14.0 is required.get it with Microsoft visual C++ build tools.直接下载，然后默认安装，
+继续命令行中“pip3 install pycrypto” 这个时候会报“C:\Program Files (x86)\Windows Kits\10\include\10.0.10240.0\ucrt\inttypes.”
+解决这个问题：打开环境变量新建用户环境变量
+名字：VCINSTALLDIR 值 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC（安装刚才下载工具如果是默认安装，就是这个路径）
+命令行中进入这个路径，同时执行 vcvarsall.bat文件
+执行语句：set CL=/FI"%VCINSTALLDIR%\INCLUDE\stdint.h"
+再次pip3 install pycrypto就OK
+以上是win的操作方法，mac系统的用的就比较抱歉，对mac 系统不是很熟悉，见谅。
